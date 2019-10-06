@@ -12,7 +12,7 @@ module.exports = {
       name: Joi.string().required(),
       email: Joi.string().email().required(),
       password: Joi.string().required(),
-      isAdmin: Joi.boolean().default(false),
+      isAdmin: Joi.boolean(),
     },
   },
 };
