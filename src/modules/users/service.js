@@ -1,7 +1,7 @@
 const { sign } = require('../../helpers/jwt');
 const { generateHash } = require('../../helpers/bcrypt');
 const { findByEmail, create: createUser } = require('./repository');
-const { passwordsAreEquals } = require('./helper');
+const { passwordsAreEquals, formatUser } = require('./helper');
 
 /**
  * @description Create new user.
@@ -13,10 +13,14 @@ const create = async (data) => {
   const modifiedUser = { ...data, password: generateHash(password) };
 
   try {
-    const user = await createUser(modifiedUser);
+    const user = formatUser(await createUser(modifiedUser));
 
     return user;
   } catch (error) {
+    if (/duplicate key error/.test(error)) {
+      error.name = 'CONFLICT';
+      error.message = 'Email already are registered.';
+    }
     throw error;
   }
 };
@@ -28,23 +32,21 @@ const create = async (data) => {
  */
 const signIn = async (data) => {
   const { email, password } = data;
+
   try {
-    const error = { name: 'UNAUTHORIZED' };
     const user = await findByEmail(email);
 
     if (!user) {
-      error.message = 'Invalid user';
-      throw error;
+      throw new Error('Invalid user');
     } else if (!passwordsAreEquals(user, { password })) {
-      error.message = 'Invalid password';
-      throw error;
+      throw new Error('Invalid password');
     }
 
-    delete user.password;
     user.token = sign(user);
 
-    return user;
+    return formatUser(user);
   } catch (error) {
+    error.name = 'UNAUTHORIZED';
     throw error;
   }
 };

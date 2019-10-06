@@ -8,19 +8,17 @@
 1. Criar um arquivo .env com base no arquivo example.env
     ### Exemplo de arquivo
     ```
-    PORT = 8080
-    MONGODB_URI = mongodb://boilerplate_db
-    MONGODB_DATABASE = boilerplate
+    PORT = 3000
+    MONGODB_URI = mongodb://test_rankmyapp_db
+    MONGODB_DATABASE = test_rankmyapp
     NODE_ENV=development
     SECRET=3OI15HT3QUODBHYI3g1iugYIEG31BIRUFBEHIUFHFE
-    GOOGLE_MAPS_API_KEY={YOUR_API_KEY}
     ```
 
     - `PORT`: Porta do servidor
-    - `MONGODB_URI`: URI do mongo (URI deve ser igual ao nome do container, no caso `boilerplate_db`)
+    - `MONGODB_URI`: URI do mongo (URI deve ser igual ao nome do container, no caso `test_rankmyapp_db`)
     - `MONGODB_DATABASE`: Nome do banco utilizado pela aplicação.
-    - `NODE_ENV`: Ambiente da aplicação.
-    - `GOOGLE_MAPS_API_KEY`: Key da sua API do Google Maps.
+    - `NODE_ENV`: Ambiente da aplicação.=
 2. Executar a aplicação
     > docker-compose up
 

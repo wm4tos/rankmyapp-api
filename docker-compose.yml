@@ -3,12 +3,12 @@ version: '3'
 services:
 
   api:
-    container_name: boilerplate_api
+    container_name: test_rankmyapp_api
     image: node:10
     networks:
       - db
     ports:
-      - "8080:8080"
+      - "3000:3000"
     command: sh -c "npm install && npm run dev"
     depends_on:
       - db
@@ -21,7 +21,7 @@ services:
       - .env
 
   db:
-    container_name: boilerplate_db
+    container_name: test_rankmyapp_db
     image: mongo
     networks:
       - db
