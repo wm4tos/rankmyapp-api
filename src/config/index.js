@@ -6,4 +6,6 @@ module.exports = Object.freeze({
   NODE_ENV: process.env.NODE_ENV,
   MONGODB_URI: process.env.MONGODB_URI,
   MONGODB_DATABASE: process.env.MONGODB_DATABASE,
+  EBAY_APP_NAME: process.env.EBAY_APP_NAME,
+  EBAY_GLOBAL_ID: process.env.EBAY_GLOBAL_ID,
 });
