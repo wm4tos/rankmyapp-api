@@ -1,3 +1,3 @@
 const axios = require('axios');
 
-module.exports = url => axios.create({ baseURL: url });
+module.exports = (url, config = {}) => axios.create({ baseURL: url, ...config });
