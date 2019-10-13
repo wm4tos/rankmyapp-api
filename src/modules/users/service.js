@@ -42,9 +42,9 @@ const signIn = async (data) => {
       throw new Error('Invalid password');
     }
 
-    user.token = sign(user);
+    const token = sign(user);
 
-    return formatUser(user);
+    return { user: formatUser(user), token };
   } catch (error) {
     error.name = 'UNAUTHORIZED';
     throw error;
