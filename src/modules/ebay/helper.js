@@ -1,3 +1,5 @@
+const { toMoney } = require('../../helpers/number');
+
 const mapItem = ({ title, location, sellingStatus }) => {
   const [titleStr] = title;
   const [locationStr] = location;
@@ -8,13 +10,13 @@ const mapItem = ({ title, location, sellingStatus }) => {
   return ({
     title: titleStr,
     locale: locationStr,
-    value: `USD ${__value__}`,
+    value: toMoney(__value__),
   });
 };
 
 module.exports.formatResult = (result = {}) => {
   if (result.findItemsByKeywordsResponse) {
-    const [{ searchResult: [{ item }] }] = result.findItemsByKeywordsResponse;
+    const [{ searchResult: [{ item = [] }] }] = result.findItemsByKeywordsResponse;
 
     return item.map(mapItem);
   }
