@@ -6,9 +6,9 @@ const { create, findAll } = require('./service');
 const createAlert = async (req, res, next) => {
   try {
     const { body } = req;
-    await create(body);
+    const alert = await create(body);
 
-    res.status(200).json({ status: 200, message: 'Alert created successfully' });
+    res.status(200).json(alert);
   } catch (error) {
     next(error);
   }

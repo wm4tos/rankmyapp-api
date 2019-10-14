@@ -2,13 +2,13 @@ const { create: createAlert, findAll: find } = require('./repository');
 
 /**
  * @description Save an alert to a user.
- * @param {{ email: string keywords: string time: string }} alert
+ * @param {{ email: string keywords: string time: string }} doc
  */
-const create = async (alert) => {
+const create = async (doc) => {
   try {
-    await createAlert(alert);
+    const alert = await createAlert(doc);
 
-    return true;
+    return alert;
   } catch (error) {
     throw error;
   }
