@@ -9,6 +9,8 @@ const errorHandler = require('./middlewares/error_handler');
 const errorHelper = require('./helpers/error');
 const seederHelper = require('./helpers/seed');
 
+const cron = require('./modules/cron/service');
+
 const { Router } = express;
 const app = express();
 
@@ -31,6 +33,7 @@ const listen = () => app.listen(PORT, () => process.stdout.write(`Listening on p
 
 const startServer = async () => {
   await seederHelper();
+  cron();
   listen();
 };
 
