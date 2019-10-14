@@ -17,6 +17,7 @@ Projeto criado para o teste técnico da [RankMyApp](https://www.rankmyapp.com/pt
     SECRET=3OI15HT3QUODBHYI3g1iugYIEG31BIRUFBEHIUFHFE
     EBAY_APP_NAME={YOUR_APP_NAME}
     EBAY_GLOBAL_ID=EBAY-US
+    SENDGRID_API_KEY={YOUR_SENDGRID_KEY}
     ```
 
     - `PORT`: Porta do servidor
@@ -26,6 +27,7 @@ Projeto criado para o teste técnico da [RankMyApp](https://www.rankmyapp.com/pt
     - `SECRET`: Chave utilizada pelo JWT.
     - `EBAY_APP_NAME`: Chave da aplicação no eBay. Se não tiver uma conta de desenvolvedor no eBay, faça [cadastro](https://developer.ebay.com/signin?tab=register). Depois de logado, [solicite sua chave](https://developer.ebay.com/my/keys)
     - `EBAY_GLOBAL_ID`: Lugar onde será feita a busca no eBay. Você pode ver uma lista de lugares [aqui](https://developer.ebay.com/DevZone/finding/CallRef/Enums/GlobalIdList.html)
+    - `SENDGRID_API_KEY`: Chave da API do sendgrid que será utilizada para o disparo de e-mails.
 
 2. Instalar as dependências
 
