@@ -17,6 +17,21 @@ const create = async (doc) => {
   }
 };
 
+/**
+ * @description Search alert by time.
+ * @param {String} time
+ */
+const findByTime = async (time) => {
+  try {
+    const alerts = await Alert.find({ time });
+
+    return alerts;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   create,
+  findByTime,
 };
