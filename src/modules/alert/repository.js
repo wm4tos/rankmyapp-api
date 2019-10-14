@@ -31,7 +31,22 @@ const findByTime = async (time) => {
   }
 };
 
+/**
+ * @description Get alerts.
+ * @param {Object} query
+ */
+const findAll = async (query = {}) => {
+  try {
+    const alerts = await Alert.find(query);
+
+    return alerts;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   create,
   findByTime,
+  findAll,
 };

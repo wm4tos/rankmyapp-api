@@ -1,4 +1,4 @@
-const { create: createAlert } = require('./repository');
+const { create: createAlert, findAll: find } = require('./repository');
 
 /**
  * @description Save an alert to a user.
@@ -14,6 +14,20 @@ const create = async (alert) => {
   }
 };
 
+/**
+ * @description List all alerts.
+ */
+const findAll = async () => {
+  try {
+    const alerts = await find();
+
+    return alerts;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   create,
+  findAll,
 };
