@@ -35,7 +35,14 @@ Projeto criado para o teste técnico da [RankMyApp](https://www.rankmyapp.com/pt
 
 3. Executar o projeto
 
-    `npm run dev`  
+    `npm run dev`
+
+4. Logar na aplicação
+
+    Existem três usuários disponíveis, sendo eles:
+    - `email`: wrickee@gmail.com <br/>`password`: wes123
+    - `email`: icaro.caldeira@rankmyapp.com.br <br />`password`: icaro123
+    - `email`: gabriela.spricigo@rankmyapp.com.br <br />`password`: gabi123
 
 ## Documentação
 Todas as rotas e exemplos da API estão [neste link](https://documenter.getpostman.com/view/8024266/SVtWw7Mw?version=latest).
