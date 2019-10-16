@@ -2,7 +2,7 @@ const axios = require('../../helpers/axios');
 const { EBAY_APP_NAME, EBAY_GLOBAL_ID } = require('../../config');
 const { mountQuery } = require('../../helpers/string');
 const { formatResult } = require('./helper');
-const { saveSearch } = require('./repository');
+const { saveSearch, getSearch } = require('./repository');
 
 const ebayInstance = axios('http://svcs.ebay.com/');
 
@@ -23,9 +23,13 @@ const search = async (keywords = '') => {
   };
 
   try {
-    const { data } = await ebayInstance.get(`services/search/FindingService/v1${mountQuery(queryEbay)}`);
+    const resultFromCache = await getSearch(keywords);
 
-    const formatedResult = formatResult(data);
+    if (resultFromCache) return resultFromCache;
+
+    const { data: resultFromAxios } = await ebayInstance.get(`services/search/FindingService/v1${mountQuery(queryEbay)}`);
+
+    const formatedResult = formatResult(resultFromAxios);
 
     saveSearch({ key: keywords, data: formatedResult });
 
