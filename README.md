@@ -5,6 +5,7 @@ Projeto criado para o teste técnico da [RankMyApp](https://www.rankmyapp.com/pt
 - NodeJS
 - ExpressJS
 - Mongoose
+- Redis
 
 ## Executando o projeto
 1. Criar um arquivo .env com base no arquivo example.env
