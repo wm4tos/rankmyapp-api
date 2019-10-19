@@ -5,29 +5,34 @@ Projeto criado para o teste técnico da [RankMyApp](https://www.rankmyapp.com/pt
 - NodeJS
 - ExpressJS
 - Mongoose
+- Redis
 
 ## Executando o projeto
 1. Criar um arquivo .env com base no arquivo example.env
     ### Exemplo do arquivo
     ```
     PORT=3000
-    MONGODB_URI=mongodb://test_rankmyapp_db
+    MONGODB_URI=mongodb://test_rankmyapp_mongo
     MONGODB_DATABASE=test_rankmyapp
     NODE_ENV=development
     SECRET=3OI15HT3QUODBHYI3g1iugYIEG31BIRUFBEHIUFHFE
     EBAY_APP_NAME={YOUR_APP_NAME}
     EBAY_GLOBAL_ID=EBAY-US
     SENDGRID_API_KEY={YOUR_SENDGRID_KEY}
+    REDIS_EXPIRES=3600000
+    REDIS_URL=redis://test_rankmyapp_redis
     ```
 
     - `PORT`: Porta do servidor
-    - `MONGODB_URI`: URI do mongo (URI deve ser igual ao nome do container, no caso `test_rankmyapp_db`)
-    - `MONGODB_DATABASE`: Nome do banco utilizado pela aplicação.
-    - `NODE_ENV`: Ambiente da aplicação.
-    - `SECRET`: Chave utilizada pelo JWT.
+    - `MONGODB_URI`: URI do mongo (URI deve ser igual ao nome do container, no caso `test_rankmyapp_mongo`)
+    - `MONGODB_DATABASE`: Nome do banco utilizado pela aplicação
+    - `NODE_ENV`: Ambiente da aplicação
+    - `SECRET`: Chave utilizada pelo JWT
     - `EBAY_APP_NAME`: Chave da aplicação no eBay. Se não tiver uma conta de desenvolvedor no eBay, faça [cadastro](https://developer.ebay.com/signin?tab=register). Depois de logado, [solicite sua chave](https://developer.ebay.com/my/keys)
     - `EBAY_GLOBAL_ID`: Lugar onde será feita a busca no eBay. Você pode ver uma lista de lugares [aqui](https://developer.ebay.com/DevZone/finding/CallRef/Enums/GlobalIdList.html)
-    - `SENDGRID_API_KEY`: Chave da API do sendgrid que será utilizada para o disparo de e-mails.
+    - `SENDGRID_API_KEY`: Chave da API do sendgrid que será utilizada para o disparo de e-mails
+    - `REDIS_EXPIRES`: Tempo (em millisegundos) de expiração padrão do redis
+    - `REDIS_URL`: URL do redis (URL deve ser igual ao nome do container, no caso `redis://test_rankmyapp_redis`)
 
 2. Instalar as dependências
 
