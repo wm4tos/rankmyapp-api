@@ -36,8 +36,8 @@ class Cron {
         rule: '*/30 * * * * *',
       },
       {
-        name: '1m',
-        rule: '*/1 * * * *',
+        name: '2m',
+        rule: '*/2 * * * *',
       },
       {
         name: '10m',
